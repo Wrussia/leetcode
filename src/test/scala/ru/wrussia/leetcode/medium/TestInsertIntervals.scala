@@ -4,7 +4,6 @@ import org.scalatest.{Matchers, WordSpecLike}
 
 class TestInsertIntervals extends WordSpecLike with Matchers {
 
-
   "case 1" in {
     val intervals = Array(Array(1, 2), Array(3, 5), Array(6, 7), Array(8, 10), Array(12, 16))
     val newInterval = Array(4, 8)

@@ -27,5 +27,14 @@ class TestPowXN extends WordSpecLike with Matchers {
   "case 8" in {
     PowXN.myPow(0.15,0) shouldBe 1
   }
+  "test nonRec" in {
+    PowXN.nonRecPow(2, 2) shouldBe 4
+    PowXN.nonRecPow(2, -2) shouldBe 0.25
+    PowXN.nonRecPow(2, 11) shouldBe 2048
+    PowXN.nonRecPow(2, 15) shouldBe 32768
+    PowXN.nonRecPow(-1, 16) shouldBe 1
+    PowXN.nonRecPow(2.0,-2147483648) shouldBe 0
+    PowXN.nonRecPow(0.15,0) shouldBe 1
+  }
 
 }

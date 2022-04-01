@@ -2,6 +2,7 @@ package ru.wrussia.leetcode.medium
 
 
 import scala.collection.mutable
+import scala.util.Sorting
 
 object ThreeSum {
 
@@ -18,11 +19,11 @@ object ThreeSum {
   }
 
   def threeSum(nums: Array[Int]): List[List[Int]] = {
-    val numsSorted = nums.sorted
+    Sorting.quickSort(nums)
     val resultSet = mutable.Set[List[Int]]()
-    for (i <- nums.indices if numsSorted(i) <= 0; j <- i + 1 until nums.length) {
-      if (binarySearch(numsSorted, -(numsSorted(i) + numsSorted(j)), j + 1) > 0)
-        resultSet.add(List(numsSorted(i), numsSorted(j), -(numsSorted(i) + numsSorted(j))))
+    for (i <- nums.indices if nums(i) <= 0; j <- i + 1 until nums.length) {
+      if (binarySearch(nums, -(nums(i) + nums(j)), j + 1) > 0)
+        resultSet.add(List(nums(i), nums(j), -(nums(i) + nums(j))))
     }
     resultSet.toList
   }
